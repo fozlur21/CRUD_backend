@@ -27,6 +27,10 @@ const ProductsSchema = mongoose.Schema(
         category: {
             type: String,
             required: false
+        },
+        brand: {
+            type: String,
+            required: [false, "Please add brand name"]
         }
     },
     {

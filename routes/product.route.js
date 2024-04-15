@@ -1,6 +1,4 @@
 import express from 'express';
-const router = express.Router();
-
 import {
     getProducts,
     getProduct,
@@ -8,6 +6,7 @@ import {
     updateProduct,
     deleteProduct
 } from "../controllers/product.controller.js";
+const router = express.Router();
 
 //! for GET request to get all info (READ)
 router.get('/', getProducts);

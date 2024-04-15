@@ -15,6 +15,11 @@ const getProducts = async (req, res) => {
 const getProduct = async (req, res) => {
     try {
         const { id } = req.params;
+        //! id validation
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: "Invalid Product ID!" });
+        }
+
         const product = await Product.findById(id);
         res.status(200).json(product);
     } catch (error) {
@@ -36,6 +41,7 @@ const createProducts = async (req, res) => {
 const updateProduct = async (req, res) => {
     try {
         const { id } = req.params;
+
         const { name, description, quantity, price, images, category } = req.body;
 
         //! id validation
